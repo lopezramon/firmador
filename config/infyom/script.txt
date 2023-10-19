@@ -1,0 +1,18 @@
+-------------------------
+clear cache documentations
+-------------------------
+sail artisan cache:clear
+sail artisan config:cache
+sail artisan config:clear
+-------------------------
+Example command Unit Test
+-------------------------
+sail artisan test --filter FirmApiTest tests/APIs/FirmApiTest.php.php
+sail artisan test --filter LogSignaturApiTest tests/APIs/LogSignaturApiTest.php
+-------------------------
+Creation the CRUD
+-------------------------
+sail artisan infyom:api User          --fromTable --tableName=users           --skip=migrations
+sail artisan infyom:api Organization  --fromTable --tableName=organizations   --skip=migrations
+sail artisan infyom:api Firm          --fromTable --tableName=firms           --skip=migrations
+sail artisan infyom:api LogSignatur   --fromTable --tableName=log_signatures  --skip=migrations
