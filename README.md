@@ -31,10 +31,10 @@ http://localhost
 
 [Laravel Sail](https://laravel.com/docs/9.x/sail) es una interfaz de línea de comandos liviana para interactuar con el entorno de desarrollo Docker predeterminado de Laravel. Sail proporciona un excelente punto de partida para crear una aplicación Laravel con PHP, MySQL y Redis sin necesidad de experiencia previa en Docker.
 
-## Configuraion alias
+## Configuración alias
 Configuring de Bash [Alias](https://laravel.com/docs/9.x/sail#configuring-a-bash-alias) recomendado por [Laravel Sail](https://laravel.com/docs/9.x/sail)
 
-## Informacion de Docker-composer
+## Información de Docker-composer
 - [Servidor Web](https://httpd.apache.org/).
 - [Mysql](https://www.mysql.com/).
 - [Redis](https://redis.io/).
