@@ -35,11 +35,11 @@ class RegisteredUserController extends AppBaseController
             'password' => Hash::make($request->password),
         ]);
 
-        $user->assignRole('funcionario');
+        // $user->assignRole('funcionario');
 
-        event(new Registered($user));
+        // event(new Registered($user));
 
-        Auth::login($user);
+        // Auth::login($user);
 
         // return response()->noContent();
         return $this->sendResponse(['User' => $user], 'Registro satisfactorio');

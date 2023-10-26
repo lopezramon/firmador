@@ -2,88 +2,19 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Spatie\Permission\Traits\HasRoles;
+use Laravel\Sanctum\HasApiTokens;
 
-/**
- * @OA\Schema(
- *      schema="User",
- *      required={"name", "password"},
- *      @OA\Property(
- *          property="id",
- *          description="id",
- *          readOnly=true,
- *          nullable=false,
- *          type="integer",
- *          format="int32"
- *      ),
- *      @OA\Property(
- *          property="name",
- *          description="name",
- *          readOnly=false,
- *          nullable=false,
- *          type="string"
- *      ),
- *      @OA\Property(
- *          property="email",
- *          description="email",
- *          readOnly=false,
- *          nullable=true,
- *          type="string"
- *      ),
- *      @OA\Property(
- *          property="email_verified_at",
- *          description="email_verified_at",
- *          readOnly=false,
- *          nullable=true,
- *          type="string",
- *          format="date-time"
- *      ),
- *      @OA\Property(
- *          property="password",
- *          description="password",
- *          readOnly=false,
- *          nullable=false,
- *          type="string"
- *      ),
- *      @OA\Property(
- *          property="url",
- *          description="url",
- *          readOnly=false,
- *          nullable=true,
- *          type="string"
- *      ),
- *      @OA\Property(
- *          property="remember_token",
- *          description="remember_token",
- *          readOnly=false,
- *          nullable=true,
- *          type="string"
- *      ),
- *      @OA\Property(
- *          property="created_at",
- *          description="created_at",
- *          readOnly=true,
- *          nullable=true,
- *          type="string",
- *          format="date-time"
- *      ),
- *      @OA\Property(
- *          property="updated_at",
- *          description="updated_at",
- *          readOnly=true,
- *          nullable=true,
- *          type="string",
- *          format="date-time"
- *      )
- * )
- */
-class User extends Model
+class User extends Authenticatable
 {
-    use SoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
-    use HasFactory;
+    protected $guard_name = ['sanctum'];
 
     public $table = 'users';
     
@@ -135,5 +66,16 @@ class User extends Model
         'updated_at' => 'nullable'
     ];
 
-    
+    public function setPasswordAttribute($value)
+    {
+        $this->attributes['password'] = Hash::needsRehash($value) ? Hash::make($value) : $value;
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function organizations()
+    {
+        return $this->hasMany(\App\Models\Organization::class, 'user_id');
+    }
 }

@@ -131,4 +131,12 @@ class Organization extends Model
     {
         return $this->hasMany(\App\Models\Firm::class, 'organization_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function user()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'user_id');
+    }
 }

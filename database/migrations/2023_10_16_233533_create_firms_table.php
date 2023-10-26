@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('count');
 
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

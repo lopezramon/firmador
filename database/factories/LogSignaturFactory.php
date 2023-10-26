@@ -23,7 +23,7 @@ class LogSignaturFactory extends Factory
      */
     public function definition()
     {
-        
+
         $firm = Firm::first();
         if (!$firm) {
             $firm = Firm::factory()->create();
@@ -35,8 +35,7 @@ class LogSignaturFactory extends Factory
             'document_type' => $this->faker->text($this->faker->numberBetween(5, 255)),
             'date_time' => $this->faker->date('Y-m-d H:i:s'),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
-            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-            'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }

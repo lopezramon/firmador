@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
 use Spatie\Permission\Models\Role;
 use Spatie\Permission\PermissionRegistrar;
+use Illuminate\Support\Facades\Hash;
 
 class PermissionsSeeder extends Seeder
 {
@@ -36,7 +37,7 @@ class PermissionsSeeder extends Seeder
 
 
         // create roles and assign existing permissions
-        $role1 = Role::create(['name' => 'funcionario','guard_name' => 'sanctum']);
+        $role1 = Role::create(['name' => 'cliente','guard_name' => 'sanctum']);
         $role1->givePermissionTo('consultar-modulos');
 
         $role2 = Role::create(['name' => 'admin','guard_name' => 'sanctum']);
@@ -48,24 +49,24 @@ class PermissionsSeeder extends Seeder
 
         // create demo users
         $user = \App\Models\User::factory()->create([
-            'name' => 'Example User',
+            'name' => 'AvanZF',
             'email' => 'test@example.com',
-            'password'=>'epidata01'
+            'password'=> Hash::make('avanzf01')
         ]);
-        $user->assignRole($role1);
+        // $user->assignRole($role1);
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Example Admin User',
+            'name' => 'AvanZF Admin',
             'email' => 'admin@example.com',
-            'password'=>'epidata01'
+            'password'=> Hash::make('avanzf02')
         ]);
-        $user->assignRole($role2);
+        // $user->assignRole($role2);
 
         $user = \App\Models\User::factory()->create([
-            'name' => 'Example Super-Admin User',
+            'name' => 'AvanZF Super-Admin',
             'email' => 'superadmin@example.com',
-            'password'=>'epidata01'
+            'password'=> Hash::make('avanzf03')
         ]);
-        $user->assignRole($role3);
+        // $user->assignRole($role3);
     }
 }

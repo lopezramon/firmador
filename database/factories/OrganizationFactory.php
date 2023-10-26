@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Organization;
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 
@@ -22,15 +23,18 @@ class OrganizationFactory extends Factory
      */
     public function definition()
     {
-        
+        $user = User::first();
+        if (!$user) {
+            $user = User::factory()->create();
+        }
+
         return [
             'name' => $this->faker->text($this->faker->numberBetween(5, 255)),
             'rut' => $this->faker->text($this->faker->numberBetween(5, 255)),
             'email' => $this->faker->email,
-            'user_id' => $this->faker->numberBetween(0, 999),
+            'user_id' => $user->id,
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
-            'updated_at' => $this->faker->date('Y-m-d H:i:s'),
-            'deleted_at' => $this->faker->date('Y-m-d H:i:s')
+            'updated_at' => $this->faker->date('Y-m-d H:i:s')
         ];
     }
 }
