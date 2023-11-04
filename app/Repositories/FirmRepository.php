@@ -40,4 +40,9 @@ class FirmRepository extends BaseRepository
     {
         return Firm::class;
     }
+
+    public function getIncludes()
+    {
+        return ['organization'];
+    }
 }

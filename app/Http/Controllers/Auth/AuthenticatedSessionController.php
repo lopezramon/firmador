@@ -23,8 +23,8 @@ class AuthenticatedSessionController extends AppBaseController
 
         $user = Auth::user();
 
-        $token = $user->createToken('Token')->plainTextToken;
-        return $this->sendResponse(['Usuario' => $user, 'Token' => $token], 'Acceso satisfactorio');
+        $token = $user->createToken('token')->plainTextToken;
+        return $this->sendResponse(['usuario' => $user, 'token' => $token], 'Acceso satisfactorio');
     }
 
     /**

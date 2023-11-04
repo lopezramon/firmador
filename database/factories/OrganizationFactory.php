@@ -29,8 +29,8 @@ class OrganizationFactory extends Factory
         }
 
         return [
-            'name' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'rut' => $this->faker->text($this->faker->numberBetween(5, 255)),
+            'name' => $this->faker->company(),
+            'rut' => $this->faker->randomNumber(9, true),
             'email' => $this->faker->email,
             'user_id' => $user->id,
             'created_at' => $this->faker->date('Y-m-d H:i:s'),

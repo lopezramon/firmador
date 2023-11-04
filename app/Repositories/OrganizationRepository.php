@@ -40,4 +40,9 @@ class OrganizationRepository extends BaseRepository
     {
         return Organization::class;
     }
+
+    public function getIncludes()
+    {
+        return ['user'];
+    }
 }
