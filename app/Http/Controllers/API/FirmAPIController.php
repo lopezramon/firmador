@@ -30,9 +30,10 @@ class FirmAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Get(
-     *      path="/firms",
+     *      path="/api/firms",
      *      summary="getFirmList",
      *      tags={"Firm"},
+     *      security={ {"sanctum": {} }},
      *      description="Get all Firms",
      *      @OA\Response(
      *          response=200,
@@ -72,9 +73,10 @@ class FirmAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Post(
-     *      path="/firms",
+     *      path="/api/firms",
      *      summary="createFirm",
      *      tags={"Firm"},
+     *      security={ {"sanctum": {} }},
      *      description="Create Firm",
      *      @OA\RequestBody(
      *        required=true,
@@ -126,9 +128,10 @@ class FirmAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Get(
-     *      path="/firms/{id}",
+     *      path="/api/firms/{id}",
      *      summary="getFirmItem",
      *      tags={"Firm"},
+     *      security={ {"sanctum": {} }},
      *      description="Get Firm",
      *      @OA\Parameter(
      *          name="id",
@@ -178,9 +181,10 @@ class FirmAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Put(
-     *      path="/firms/{id}",
+     *      path="/api/firms/{id}",
      *      summary="updateFirm",
      *      tags={"Firm"},
+     *      security={ {"sanctum": {} }},
      *      description="Update Firm",
      *      @OA\Parameter(
      *          name="id",
@@ -248,9 +252,10 @@ class FirmAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Delete(
-     *      path="/firms/{id}",
+     *      path="/api/firms/{id}",
      *      summary="deleteFirm",
      *      tags={"Firm"},
+     *      security={ {"sanctum": {} }},
      *      description="Delete Firm",
      *      @OA\Parameter(
      *          name="id",

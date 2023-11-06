@@ -30,10 +30,11 @@ class OrganizationAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Get(
-     *      path="/organizations",
+     *      path="/api/organizations",
      *      summary="getOrganizationList",
      *      tags={"Organization"},
      *      description="Get all Organizations",
+     *      security={ {"sanctum": {} }},
      *      @OA\Response(
      *          response=200,
      *          description="successful operation",
@@ -72,10 +73,11 @@ class OrganizationAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Post(
-     *      path="/organizations",
+     *      path="/api/organizations",
      *      summary="createOrganization",
      *      tags={"Organization"},
      *      description="Create Organization",
+     *      security={ {"sanctum": {} }},
      *      @OA\RequestBody(
      *        required=true,
      *        @OA\MediaType(
@@ -126,10 +128,11 @@ class OrganizationAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Get(
-     *      path="/organizations/{id}",
+     *      path="/api/organizations/{id}",
      *      summary="getOrganizationItem",
      *      tags={"Organization"},
      *      description="Get Organization",
+     *      security={ {"sanctum": {} }},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Organization",
@@ -178,10 +181,11 @@ class OrganizationAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Put(
-     *      path="/organizations/{id}",
+     *      path="/api/organizations/{id}",
      *      summary="updateOrganization",
      *      tags={"Organization"},
      *      description="Update Organization",
+     *      security={ {"sanctum": {} }},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Organization",
@@ -248,10 +252,11 @@ class OrganizationAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Delete(
-     *      path="/organizations/{id}",
+     *      path="/api/organizations/{id}",
      *      summary="deleteOrganization",
      *      tags={"Organization"},
      *      description="Delete Organization",
+     *      security={ {"sanctum": {} }},
      *      @OA\Parameter(
      *          name="id",
      *          description="id of Organization",

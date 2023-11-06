@@ -30,9 +30,10 @@ class LogSignaturAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Get(
-     *      path="/logSignaturs",
+     *      path="/api/logSignaturs",
      *      summary="getLogSignaturList",
      *      tags={"LogSignatur"},
+     *      security={ {"sanctum": {} }},
      *      description="Get all LogSignaturs",
      *      @OA\Response(
      *          response=200,
@@ -72,9 +73,10 @@ class LogSignaturAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Post(
-     *      path="/logSignaturs",
+     *      path="/api/logSignaturs",
      *      summary="createLogSignatur",
      *      tags={"LogSignatur"},
+     *      security={ {"sanctum": {} }},
      *      description="Create LogSignatur",
      *      @OA\RequestBody(
      *        required=true,
@@ -126,9 +128,10 @@ class LogSignaturAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Get(
-     *      path="/logSignaturs/{id}",
+     *      path="/api/logSignaturs/{id}",
      *      summary="getLogSignaturItem",
      *      tags={"LogSignatur"},
+     *      security={ {"sanctum": {} }},
      *      description="Get LogSignatur",
      *      @OA\Parameter(
      *          name="id",
@@ -178,9 +181,10 @@ class LogSignaturAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Put(
-     *      path="/logSignaturs/{id}",
+     *      path="/api/logSignaturs/{id}",
      *      summary="updateLogSignatur",
      *      tags={"LogSignatur"},
+     *      security={ {"sanctum": {} }},
      *      description="Update LogSignatur",
      *      @OA\Parameter(
      *          name="id",
@@ -248,9 +252,10 @@ class LogSignaturAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Delete(
-     *      path="/logSignaturs/{id}",
+     *      path="/api/logSignaturs/{id}",
      *      summary="deleteLogSignatur",
      *      tags={"LogSignatur"},
+     *      security={ {"sanctum": {} }},
      *      description="Delete LogSignatur",
      *      @OA\Parameter(
      *          name="id",

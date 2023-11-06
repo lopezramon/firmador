@@ -30,9 +30,10 @@ class UserAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Get(
-     *      path="/users",
+     *      path="/api/users",
      *      summary="getUserList",
      *      tags={"User"},
+     *      security={ {"sanctum": {} }},
      *      description="Get all Users",
      *      @OA\Response(
      *          response=200,
@@ -72,9 +73,10 @@ class UserAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Post(
-     *      path="/users",
+     *      path="/api/users",
      *      summary="createUser",
      *      tags={"User"},
+     *      security={ {"sanctum": {} }},
      *      description="Create User",
      *      @OA\RequestBody(
      *        required=true,
@@ -126,9 +128,10 @@ class UserAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Get(
-     *      path="/users/{id}",
+     *      path="/api/users/{id}",
      *      summary="getUserItem",
      *      tags={"User"},
+     *      security={ {"sanctum": {} }},
      *      description="Get User",
      *      @OA\Parameter(
      *          name="id",
@@ -178,9 +181,10 @@ class UserAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Put(
-     *      path="/users/{id}",
+     *      path="/api/users/{id}",
      *      summary="updateUser",
      *      tags={"User"},
+     *      security={ {"sanctum": {} }},
      *      description="Update User",
      *      @OA\Parameter(
      *          name="id",
@@ -248,9 +252,10 @@ class UserAPIController extends AppBaseController
      * @return Response
      *
      * @OA\Delete(
-     *      path="/users/{id}",
+     *      path="/api/users/{id}",
      *      summary="deleteUser",
      *      tags={"User"},
+     *      security={ {"sanctum": {} }},
      *      description="Delete User",
      *      @OA\Parameter(
      *          name="id",
