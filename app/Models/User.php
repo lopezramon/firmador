@@ -50,6 +50,10 @@ class User extends Authenticatable
         'remember_token' => 'string'
     ];
 
+    protected $hidden = [
+        'password',
+      ];
+
     /**
      * Validation rules
      *
@@ -78,4 +82,5 @@ class User extends Authenticatable
     {
         return $this->hasMany(\App\Models\Organization::class, 'user_id');
     }
+    
 }

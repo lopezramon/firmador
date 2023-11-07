@@ -22,6 +22,8 @@ class AuthenticatedSessionController extends AppBaseController
         $request->authenticate();
 
         $user = Auth::user();
+        $permissions = $user->getAllPermissions(); // Returns a collection
+        $roles = $user->getRoleNames(); // Returns a collection
 
         $token = $user->createToken('token')->plainTextToken;
         return $this->sendResponse(['usuario' => $user, 'token' => $token], 'Acceso satisfactorio');

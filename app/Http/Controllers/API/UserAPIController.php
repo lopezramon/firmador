@@ -172,6 +172,9 @@ class UserAPIController extends AppBaseController
             return $this->sendError('User not found');
         }
 
+        $permissions = $user->getAllPermissions(); // Returns a collection
+        $roles = $user->getRoleNames(); // Returns a collection
+
         return $this->sendResponse($user->toArray(), 'User retrieved successfully');
     }
 

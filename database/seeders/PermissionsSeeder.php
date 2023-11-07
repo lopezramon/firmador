@@ -27,8 +27,29 @@ class PermissionsSeeder extends Seeder
             ['name' => 'borrar-modulos', 'guard_name' => 'sanctum'],
             ['name' => 'consultar-modulos', 'guard_name' => 'sanctum'],
 
-           
+            //Organizacion
+            ['name' => 'crear-organizacion', 'guard_name' => 'sanctum'],
+            ['name' => 'editar-organizacion', 'guard_name' => 'sanctum'],
+            ['name' => 'borrar-organizacion', 'guard_name' => 'sanctum'],
+            ['name' => 'consultar-organizacion', 'guard_name' => 'sanctum'],
 
+            //Documentos Firmas
+            ['name' => 'crear-doctFirm', 'guard_name' => 'sanctum'],
+            ['name' => 'editar-doctFirm', 'guard_name' => 'sanctum'],
+            ['name' => 'borrar-doctFirm', 'guard_name' => 'sanctum'],
+            ['name' => 'consultar-doctFirm', 'guard_name' => 'sanctum'],
+
+            //User
+            ['name' => 'crear-user', 'guard_name' => 'sanctum'],
+            ['name' => 'editar-user', 'guard_name' => 'sanctum'],
+            ['name' => 'borrar-user', 'guard_name' => 'sanctum'],
+            ['name' => 'consultar-user', 'guard_name' => 'sanctum'],
+
+            //Log Firmas
+            ['name' => 'crear-logFirmas', 'guard_name' => 'sanctum'],
+            ['name' => 'editar-logFirmas', 'guard_name' => 'sanctum'],
+            ['name' => 'borrar-logFirmas', 'guard_name' => 'sanctum'],
+            ['name' => 'consultar-logFirmas', 'guard_name' => 'sanctum'],
         ];
 
         foreach ($permisos as $permiso) {
@@ -40,7 +61,7 @@ class PermissionsSeeder extends Seeder
         $role1 = Role::create(['name' => 'cliente','guard_name' => 'sanctum']);
         $role1->givePermissionTo('consultar-modulos');
 
-        $role2 = Role::create(['name' => 'admin','guard_name' => 'sanctum']);
+        $role2 = Role::create(['name' => 'AvanZF','guard_name' => 'sanctum']);
         $role2->givePermissionTo(Permission::all());
 
         
@@ -50,23 +71,23 @@ class PermissionsSeeder extends Seeder
         // create demo users
         $user = \App\Models\User::factory()->create([
             'name' => 'AvanZF',
-            'email' => 'test@example.com',
+            'email' => 'test@avanzf.cl',
             'password'=> Hash::make('avanzf01')
         ]);
-        // $user->assignRole($role1);
+        $user->assignRole($role1);
 
         $user = \App\Models\User::factory()->create([
             'name' => 'AvanZF Admin',
-            'email' => 'admin@example.com',
+            'email' => 'admin@avanzf.cl',
             'password'=> Hash::make('avanzf02')
         ]);
-        // $user->assignRole($role2);
+        $user->assignRole($role2);
 
         $user = \App\Models\User::factory()->create([
             'name' => 'AvanZF Super-Admin',
-            'email' => 'superadmin@example.com',
+            'email' => 'superadmin@avanzf.cl',
             'password'=> Hash::make('avanzf03')
         ]);
-        // $user->assignRole($role3);
+        $user->assignRole($role3);
     }
 }
