@@ -16,14 +16,14 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
+        \App\Models\Organization::factory(10)->create();
+        \App\Models\Firm::factory(10)->create();
         activity()->withoutLogs(function () {
             $this->call([
                 PermissionsSeeder::class,
-                // ModulesSeeder::class,
+                LogFirmsSeeder::class,
             ]);
         });
-        \App\Models\Organization::factory(10)->create();
-        \App\Models\Firm::factory(10)->create();
-        \App\Models\LogSignatur::factory(10)->create();
+        // \App\Models\LogSignatur::factory(10)->create();
     }
 }
