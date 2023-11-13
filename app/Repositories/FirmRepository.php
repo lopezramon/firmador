@@ -19,7 +19,6 @@ class FirmRepository extends BaseRepository
     protected $fieldSearchable = [
         'organization_id',
         'sistem',
-        'status',
         'count'
     ];
 

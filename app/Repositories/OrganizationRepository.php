@@ -20,6 +20,7 @@ class OrganizationRepository extends BaseRepository
         'name',
         'rut',
         'email',
+        'status',
         'user_id'
     ];
 

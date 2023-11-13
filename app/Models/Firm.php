@@ -34,13 +34,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          type="string"
  *      ),
  *      @OA\Property(
- *          property="status",
- *          description="status",
- *          readOnly=false,
- *          nullable=false,
- *          type="boolean"
- *      ),
- *      @OA\Property(
  *          property="count",
  *          description="count",
  *          readOnly=false,
@@ -85,7 +78,6 @@ class Firm extends Model
     public $fillable = [
         'organization_id',
         'sistem',
-        'status',
         'count'
     ];
 
@@ -98,7 +90,6 @@ class Firm extends Model
         'id' => 'integer',
         'organization_id' => 'integer',
         'sistem' => 'string',
-        'status' => 'boolean',
         'count' => 'integer'
     ];
 
@@ -110,7 +101,6 @@ class Firm extends Model
     public static $rules = [
         'organization_id' => 'required',
         'sistem' => 'required|string|max:255',
-        'status' => 'required|boolean',
         'count' => 'required|integer',
         'created_at' => 'nullable',
         'updated_at' => 'nullable'

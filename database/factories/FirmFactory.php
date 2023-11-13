@@ -32,7 +32,6 @@ class FirmFactory extends Factory
         return [
             'organization_id' => $organization->id,
             'sistem' => $this->faker->text($this->faker->numberBetween(5, 255)),
-            'status' => $this->faker->boolean,
             'count' => $this->faker->numberBetween(0, 999),
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s')

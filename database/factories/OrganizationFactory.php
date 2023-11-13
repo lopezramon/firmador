@@ -32,6 +32,7 @@ class OrganizationFactory extends Factory
             'name' => $this->faker->company(),
             'rut' => $this->faker->randomNumber(9, true),
             'email' => $this->faker->email,
+            'status' => $this->faker->boolean,
             'user_id' => $user->id,
             'created_at' => $this->faker->date('Y-m-d H:i:s'),
             'updated_at' => $this->faker->date('Y-m-d H:i:s')

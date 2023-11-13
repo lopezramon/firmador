@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * @OA\Schema(
  *      schema="Organization",
- *      required={"name", "rut", "user_id"},
+ *      required={"name", "rut", "status", "user_id"},
  *      @OA\Property(
  *          property="id",
  *          description="id",
@@ -38,6 +38,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          readOnly=false,
  *          nullable=true,
  *          type="string"
+ *      ),
+ *      @OA\Property(
+ *          property="status",
+ *          description="status",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="boolean"
  *      ),
  *      @OA\Property(
  *          property="user_id",
@@ -93,6 +100,7 @@ class Organization extends Model
         'name',
         'rut',
         'email',
+        'status',
         'user_id'
     ];
 
@@ -106,6 +114,7 @@ class Organization extends Model
         'name' => 'string',
         'rut' => 'string',
         'email' => 'string',
+        'status' => 'boolean',
         'user_id' => 'integer'
     ];
 
@@ -118,6 +127,7 @@ class Organization extends Model
         'name' => 'required|string|max:255',
         'rut' => 'required|string|max:255',
         'email' => 'nullable|string|max:255',
+        'status' => 'required|boolean',
         'user_id' => 'required',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
