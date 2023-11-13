@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Organization;
 use App\Repositories\BaseRepository;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Class OrganizationRepository
@@ -45,5 +46,27 @@ class OrganizationRepository extends BaseRepository
     public function getIncludes()
     {
         return ['user'];
+    }
+
+    /**
+     * Find model record for given id
+     *
+     * @param int $id
+     * @param array $columns
+     *
+     * @return \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Builder[]|\Illuminate\Database\Eloquent\Collection|Model|null
+     */
+    public function findByRut($rut)
+    {
+        try {
+            $query = $this->model->newQuery();
+            $organization = $query->existsAndStatusIsTrue($rut)->get();
+            if (!$organization || !count($organization)) {
+                $organization = false;
+            }
+            return $organization;
+        } catch (\Throwable $th) {
+            $this->handleException($th);
+        }
     }
 }

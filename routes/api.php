@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 require __DIR__.'/auth.php';
 
+
+Route::get('organizations/validation/{rut}', 'App\Http\Controllers\API\OrganizationAPIController@getValidation');
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('users', App\Http\Controllers\API\UserAPIController::class);
     Route::resource('firms', App\Http\Controllers\API\FirmAPIController::class);

@@ -300,4 +300,54 @@ class OrganizationAPIController extends AppBaseController
 
         return $this->sendSuccess('Organization deleted successfully');
     }
+
+    /**
+     * @param string $rut
+     * @return Response
+     *
+     * @OA\Get(
+     *      path="/api/organizations/validation/{rut}",
+     *      summary="getOrganizationItem",
+     *      tags={"Organization"},
+     *      description="Get Organization",
+     *      @OA\Parameter(
+     *          name="rut",
+     *          description="rut of Organization",
+     *           @OA\Schema(
+     *             type="varchar"
+     *          ),
+     *          in="path"
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @OA\Schema(
+     *              type="object",
+     *              @OA\Property(
+     *                  property="success",
+     *                  type="boolean"
+     *              ),
+     *              @OA\Property(
+     *                  property="data",
+     *                  ref="#/definitions/Organization"
+     *              ),
+     *              @OA\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )
+     */
+    public function getValidation($rut)
+    {
+        /** @var Organization $organization */
+        $organization = $this->organizationRepository->findByRut($rut);
+
+        if (empty($organization) || $organization == false) {
+            return $this->sendError('Organization not found');
+        }
+
+        return $this->sendResponse($organization->toArray(), 'Organization retrieved successfully');
+    }
 }

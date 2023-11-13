@@ -149,4 +149,9 @@ class Organization extends Model
     {
         return $this->belongsTo(\App\Models\User::class, 'user_id');
     }
+
+    public function scopeExistsAndStatusIsTrue($query, $rut)
+    {
+        return $query->where('rut', $rut)->where('status', true);
+    }
 }

@@ -5,19 +5,24 @@
         "version": "0.1"
     },
     "paths": {
-        "/firms": {
+        "/api/firms": {
             "get": {
                 "tags": [
                     "Firm"
                 ],
                 "summary": "getFirmList",
                 "description": "Get all Firms",
-                "operationId": "a6d6952c4511607e7f1f6e550bc4d59f",
+                "operationId": "f56094d5463baf5a6a1760ed4e3799d7",
                 "responses": {
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -25,7 +30,7 @@
                 ],
                 "summary": "createFirm",
                 "description": "Create Firm",
-                "operationId": "b55b8bd693ff626db705506b09066b0b",
+                "operationId": "1bb06aaae2fe357dd91b071cd58804bf",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -49,17 +54,22 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         },
-        "/firms/{id}": {
+        "/api/firms/{id}": {
             "get": {
                 "tags": [
                     "Firm"
                 ],
                 "summary": "getFirmItem",
                 "description": "Get Firm",
-                "operationId": "e3005e60f1c479cf040b3787d37d8a3e",
+                "operationId": "2b0786e345c9535cb219838d614617d9",
                 "parameters": [
                     {
                         "name": "id",
@@ -75,7 +85,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -83,7 +98,7 @@
                 ],
                 "summary": "updateFirm",
                 "description": "Update Firm",
-                "operationId": "7fcda2a05724b40e17da2dc84ef787fe",
+                "operationId": "8a6f2c97e2fcd30576544916ba88eed4",
                 "parameters": [
                     {
                         "name": "id",
@@ -118,7 +133,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -126,7 +146,7 @@
                 ],
                 "summary": "deleteFirm",
                 "description": "Delete Firm",
-                "operationId": "fe2fb8e99d6ef8d48902ab20ce7c5cf8",
+                "operationId": "cf59f0e05e38b55553a072e04be5b9de",
                 "parameters": [
                     {
                         "name": "id",
@@ -142,22 +162,32 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         },
-        "/logSignaturs": {
+        "/api/logSignaturs": {
             "get": {
                 "tags": [
                     "LogSignatur"
                 ],
                 "summary": "getLogSignaturList",
                 "description": "Get all LogSignaturs",
-                "operationId": "2d618198b71744b477854338228b3fe6",
+                "operationId": "bb7be62f5bb6b8d129ca777f5b1ee436",
                 "responses": {
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -165,7 +195,7 @@
                 ],
                 "summary": "createLogSignatur",
                 "description": "Create LogSignatur",
-                "operationId": "93e38698d551386364d8b306b147792f",
+                "operationId": "7f8799f8e467fb9a240d56039081e20f",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -189,17 +219,22 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         },
-        "/logSignaturs/{id}": {
+        "/api/logSignaturs/{id}": {
             "get": {
                 "tags": [
                     "LogSignatur"
                 ],
                 "summary": "getLogSignaturItem",
                 "description": "Get LogSignatur",
-                "operationId": "1779ea297d43aef426a30c1f845a5871",
+                "operationId": "9f30effea4f6ae72d3361c9854e23c52",
                 "parameters": [
                     {
                         "name": "id",
@@ -215,7 +250,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -223,7 +263,7 @@
                 ],
                 "summary": "updateLogSignatur",
                 "description": "Update LogSignatur",
-                "operationId": "0b49f39588518a36e6d9a16cfeb0bc42",
+                "operationId": "267a375a7b4644fa7f559766aa08e636",
                 "parameters": [
                     {
                         "name": "id",
@@ -258,7 +298,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -266,7 +311,7 @@
                 ],
                 "summary": "deleteLogSignatur",
                 "description": "Delete LogSignatur",
-                "operationId": "abec30e7a75f2736003b27de2756664d",
+                "operationId": "3d834730312dd40b7ad798630605a752",
                 "parameters": [
                     {
                         "name": "id",
@@ -282,7 +327,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         },
         "/api/organizations": {
@@ -303,16 +353,14 @@
                         "sanctum": []
                     }
                 ]
-            }
-        },
-        "/organizations": {
+            },
             "post": {
                 "tags": [
                     "Organization"
                 ],
                 "summary": "createOrganization",
                 "description": "Create Organization",
-                "operationId": "00bdebd135b90132be55bb7a492e09ff",
+                "operationId": "789fe3f9dddb46245d31705101b9eb37",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -336,17 +384,22 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         },
-        "/organizations/{id}": {
+        "/api/organizations/{id}": {
             "get": {
                 "tags": [
                     "Organization"
                 ],
                 "summary": "getOrganizationItem",
                 "description": "Get Organization",
-                "operationId": "70d53d114a77377c65553627a00177c8",
+                "operationId": "21bf7296dcc8b3a96e6ad6a2a813405d",
                 "parameters": [
                     {
                         "name": "id",
@@ -362,7 +415,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -370,7 +428,7 @@
                 ],
                 "summary": "updateOrganization",
                 "description": "Update Organization",
-                "operationId": "cd18ac0a4a7093adff866a0c89241a5c",
+                "operationId": "3446e000864cf2405e66784244aeb39c",
                 "parameters": [
                     {
                         "name": "id",
@@ -405,7 +463,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -413,7 +476,7 @@
                 ],
                 "summary": "deleteOrganization",
                 "description": "Delete Organization",
-                "operationId": "25d8ac9fd63f772ae17ed4917343a925",
+                "operationId": "a47d233a530f94541cf0bb72b8219e57",
                 "parameters": [
                     {
                         "name": "id",
@@ -422,6 +485,36 @@
                         "required": true,
                         "schema": {
                             "type": "integer"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation"
+                    }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
+            }
+        },
+        "/api/organizations/validation/{rut}": {
+            "get": {
+                "tags": [
+                    "Organization"
+                ],
+                "summary": "getOrganizationItem",
+                "description": "Get Organization",
+                "operationId": "126e0b6e4ab1a2cd1c94e93ebd554603",
+                "parameters": [
+                    {
+                        "name": "rut",
+                        "in": "path",
+                        "description": "rut of Organization",
+                        "schema": {
+                            "type": "varchar"
                         }
                     }
                 ],
@@ -617,19 +710,24 @@
                 ]
             }
         },
-        "/users": {
+        "/api/users": {
             "get": {
                 "tags": [
                     "User"
                 ],
                 "summary": "getUserList",
                 "description": "Get all Users",
-                "operationId": "1df092f5eddb2e29c3c5aa8043dd6d44",
+                "operationId": "924d8d24976411c696dda3890c99a106",
                 "responses": {
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "post": {
                 "tags": [
@@ -637,7 +735,7 @@
                 ],
                 "summary": "createUser",
                 "description": "Create User",
-                "operationId": "3465c05467f56755d8fde6dfe336f784",
+                "operationId": "e90e2e1beb42fb3b322efbdbd7e19329",
                 "requestBody": {
                     "required": true,
                     "content": {
@@ -661,17 +759,22 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         },
-        "/users/{id}": {
+        "/api/users/{id}": {
             "get": {
                 "tags": [
                     "User"
                 ],
                 "summary": "getUserItem",
                 "description": "Get User",
-                "operationId": "ca775ff26d0144e4b01abbd8c926f7c3",
+                "operationId": "9012a3c51aa9c8f370ac1b21dd90eb55",
                 "parameters": [
                     {
                         "name": "id",
@@ -687,7 +790,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "put": {
                 "tags": [
@@ -695,7 +803,7 @@
                 ],
                 "summary": "updateUser",
                 "description": "Update User",
-                "operationId": "acefdff5c10ad10456b5e12506f8ab63",
+                "operationId": "d64d15aef99fc20b200751904107e28c",
                 "parameters": [
                     {
                         "name": "id",
@@ -730,7 +838,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             },
             "delete": {
                 "tags": [
@@ -738,7 +851,7 @@
                 ],
                 "summary": "deleteUser",
                 "description": "Delete User",
-                "operationId": "b3671c968c691df9358298f3a285c767",
+                "operationId": "6db3c35842c88e308bb53854a2c42de2",
                 "parameters": [
                     {
                         "name": "id",
@@ -754,7 +867,12 @@
                     "200": {
                         "description": "successful operation"
                     }
-                }
+                },
+                "security": [
+                    {
+                        "sanctum": []
+                    }
+                ]
             }
         }
     },
@@ -785,12 +903,6 @@
                     "sistem": {
                         "description": "sistem",
                         "type": "string",
-                        "readOnly": false,
-                        "nullable": false
-                    },
-                    "status": {
-                        "description": "status",
-                        "type": "boolean",
                         "readOnly": false,
                         "nullable": false
                     },
@@ -887,6 +999,7 @@
                 "required": [
                     "name",
                     "rut",
+                    "status",
                     "user_id"
                 ],
                 "properties": {
@@ -914,6 +1027,12 @@
                         "type": "string",
                         "readOnly": false,
                         "nullable": true
+                    },
+                    "status": {
+                        "description": "status",
+                        "type": "boolean",
+                        "readOnly": false,
+                        "nullable": false
                     },
                     "user_id": {
                         "description": "user_id",
