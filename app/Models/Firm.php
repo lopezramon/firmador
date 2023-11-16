@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * @OA\Schema(
  *      schema="Firm",
- *      required={"organization_id", "sistem", "status", "count"},
+ *      required={"organization_id", "id_xml", "document_type", "date_time"},
  *      @OA\Property(
  *          property="id",
  *          description="id",
@@ -27,19 +27,26 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          format="int32"
  *      ),
  *      @OA\Property(
- *          property="sistem",
- *          description="sistem",
+ *          property="id_xml",
+ *          description="id_xml",
  *          readOnly=false,
  *          nullable=false,
  *          type="string"
  *      ),
  *      @OA\Property(
- *          property="count",
- *          description="count",
+ *          property="document_type",
+ *          description="document_type",
  *          readOnly=false,
  *          nullable=false,
- *          type="integer",
- *          format="int32"
+ *          type="string"
+ *      ),
+ *      @OA\Property(
+ *          property="date_time",
+ *          description="date_time",
+ *          readOnly=false,
+ *          nullable=false,
+ *          type="string",
+ *          format="date-time"
  *      ),
  *      @OA\Property(
  *          property="created_at",
@@ -52,6 +59,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *      @OA\Property(
  *          property="updated_at",
  *          description="updated_at",
+ *          readOnly=true,
+ *          nullable=true,
+ *          type="string",
+ *          format="date-time"
+ *      ),
+ *      @OA\Property(
+ *          property="deleted_at",
+ *          description="deleted_at",
  *          readOnly=true,
  *          nullable=true,
  *          type="string",
@@ -77,8 +92,9 @@ class Firm extends Model
 
     public $fillable = [
         'organization_id',
-        'sistem',
-        'count'
+        'id_xml',
+        'document_type',
+        'date_time'
     ];
 
     /**
@@ -89,8 +105,9 @@ class Firm extends Model
     protected $casts = [
         'id' => 'integer',
         'organization_id' => 'integer',
-        'sistem' => 'string',
-        'count' => 'integer'
+        'id_xml' => 'string',
+        'document_type' => 'string',
+        'date_time' => 'datetime'
     ];
 
     /**
@@ -100,10 +117,12 @@ class Firm extends Model
      */
     public static $rules = [
         'organization_id' => 'required',
-        'sistem' => 'required|string|max:255',
-        'count' => 'required|integer',
+        'id_xml' => 'required|string|max:255',
+        'document_type' => 'required|string|max:255',
+        'date_time' => 'required',
         'created_at' => 'nullable',
-        'updated_at' => 'nullable'
+        'updated_at' => 'nullable',
+        'deleted_at' => 'nullable'
     ];
 
     /**
@@ -112,13 +131,5 @@ class Firm extends Model
     public function organization()
     {
         return $this->belongsTo(\App\Models\Organization::class, 'organization_id');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     **/
-    public function logSignatures()
-    {
-        return $this->hasMany(\App\Models\LogSignature::class, 'firm_id');
     }
 }

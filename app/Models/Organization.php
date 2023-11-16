@@ -98,6 +98,7 @@ class Organization extends Model
 
     public $fillable = [
         'name',
+        'company',
         'rut',
         'email',
         'status',
@@ -112,6 +113,7 @@ class Organization extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
+        'company'=> 'string',
         'rut' => 'string',
         'email' => 'string',
         'status' => 'boolean',
@@ -125,10 +127,11 @@ class Organization extends Model
      */
     public static $rules = [
         'name' => 'required|string|max:255',
+        'company'=> 'required|string|max:255',
         'rut' => 'required|string|max:255',
         'email' => 'nullable|string|max:255',
         'status' => 'required|boolean',
-        'user_id' => 'required',
+        'user_id' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'

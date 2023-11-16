@@ -16,10 +16,13 @@ return new class extends Migration
         Schema::create('organizations', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('company');
             $table->string('rut')->index();
             $table->string('email')->nullable();
             $table->boolean('status')->default(false);
-            $table->foreignId('user_id')->constrained('users');
+            $table->string('sistem');
+            $table->foreignId('user_id')->nullable()->constrained('users');
+            $table->unique('rut','sistem');
 
             $table->timestamps();
             $table->softDeletes();

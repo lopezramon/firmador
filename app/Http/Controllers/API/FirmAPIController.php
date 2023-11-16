@@ -65,7 +65,7 @@ class FirmAPIController extends AppBaseController
             $request->get('limit')
         );
 
-        return $this->sendResponse($firms->toArray(), 'Firms retrieved successfully');
+        return $this->sendResponse($firms->toArray(), 'Log Signaturs retrieved successfully');
     }
 
     /**
@@ -120,7 +120,7 @@ class FirmAPIController extends AppBaseController
 
         $firm = $this->firmRepository->create($input);
 
-        return $this->sendResponse($firm->toArray(), 'Firm saved successfully');
+        return $this->sendResponse($firm->toArray(), 'Log Signatur saved successfully');
     }
 
     /**
@@ -169,10 +169,10 @@ class FirmAPIController extends AppBaseController
         $firm = $this->firmRepository->find($id);
 
         if (empty($firm)) {
-            return $this->sendError('Firm not found');
+            return $this->sendError('Log Signatur not found');
         }
 
-        return $this->sendResponse($firm->toArray(), 'Firm retrieved successfully');
+        return $this->sendResponse($firm->toArray(), 'Log Signatur retrieved successfully');
     }
 
     /**
@@ -239,7 +239,7 @@ class FirmAPIController extends AppBaseController
         $firm = $this->firmRepository->find($id);
 
         if (empty($firm)) {
-            return $this->sendError('Firm not found');
+            return $this->sendError('Log Signatur not found');
         }
 
         $firm = $this->firmRepository->update($input, $id);
@@ -293,11 +293,11 @@ class FirmAPIController extends AppBaseController
         $firm = $this->firmRepository->find($id);
 
         if (empty($firm)) {
-            return $this->sendError('Firm not found');
+            return $this->sendError('Log Signatur not found');
         }
 
         $firm->delete();
 
-        return $this->sendSuccess('Firm deleted successfully');
+        return $this->sendSuccess('Log Signatur deleted successfully');
     }
 }

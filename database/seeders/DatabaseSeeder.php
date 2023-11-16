@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Organization;
 use App\Models\TipoContrato;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -16,14 +17,15 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
 
-        \App\Models\Organization::factory(10)->create();
-        \App\Models\Firm::factory(10)->create();
+        // \App\Models\Organization::factory(10)->create();
+        // \App\Models\Firm::factory(10)->create();
         activity()->withoutLogs(function () {
             $this->call([
                 PermissionsSeeder::class,
-                LogFirmsSeeder::class,
+                OrganizationsSeeder::class,
+                FirmsSeeder::class,
+
             ]);
         });
-        // \App\Models\LogSignatur::factory(10)->create();
     }
 }

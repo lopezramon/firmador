@@ -17,8 +17,9 @@ return new class extends Migration
             $table->id();
 
             $table->foreignId('organization_id')->constrained('organizations');
-            $table->string('sistem');
-            $table->integer('count');
+            $table->string('id_xml');
+            $table->string('document_type');
+            $table->dateTime('date_time');
             $table->timestamps();
             $table->softDeletes();
         });
