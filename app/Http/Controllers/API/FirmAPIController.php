@@ -300,4 +300,59 @@ class FirmAPIController extends AppBaseController
 
         return $this->sendSuccess('Log Signatur deleted successfully');
     }
+
+    /**
+     * @param Request $request
+     * @return Response
+     *
+     * @OA\Post(
+     *      path="/api/firms/register",
+     *      summary="createFirm",
+     *      tags={"Firm"},
+     *      security={ {"sanctum": {} }},
+     *      description="Create Firm",
+     *      @OA\RequestBody(
+     *        required=true,
+     *        @OA\MediaType(
+     *            mediaType="application/x-www-form-urlencoded",
+     *            @OA\Schema(
+     *                type="object",
+     *                required={""},
+     *                @OA\Property(
+     *                    property="name",
+     *                    description="desc",
+     *                    type="string"
+     *                )
+     *            )
+     *        )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="successful operation",
+     *          @OA\Schema(
+     *              type="object",
+     *              @OA\Property(
+     *                  property="success",
+     *                  type="boolean"
+     *              ),
+     *              @OA\Property(
+     *                  property="data",
+     *                  ref="#/definitions/Firm"
+     *              ),
+     *              @OA\Property(
+     *                  property="message",
+     *                  type="string"
+     *              )
+     *          )
+     *      )
+     * )
+     */
+    public function setRegister(CreateFirmAPIRequest $request)
+    {
+        $input = $request->all();
+
+        $firm = $this->firmRepository->create($input);
+
+        return $this->sendResponse($firm->toArray(), 'Log Signatur saved successfully');
+    }
 }

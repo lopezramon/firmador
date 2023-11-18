@@ -3,7 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\Firm;
+use App\Models\Organization;
 use App\Repositories\BaseRepository;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Class FirmRepository
@@ -20,7 +22,8 @@ class FirmRepository extends BaseRepository
         'organization_id',
         'id_xml',
         'document_type',
-        'date_time'
+        'signatory',
+        'signatory_email'
     ];
 
     /**
@@ -44,5 +47,28 @@ class FirmRepository extends BaseRepository
     public function getIncludes()
     {
         return ['organization'];
+    }
+
+     /**
+     * Create model record
+     *
+     * @param array $input
+     *
+     * @return Models
+     */
+    public function create($input)
+    {
+        try {
+            DB::beginTransaction();
+            $organization = Organization::where('rut', '=', $input['rut'])->first();
+            $input['organization_id'] = $organization->id;
+            $model = $this->model->newInstance($input);
+            $model->save();
+            DB::commit();
+            return $model;
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            $this->handleException($th);
+        }
     }
 }

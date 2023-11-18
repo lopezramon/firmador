@@ -19,7 +19,8 @@ return new class extends Migration
             $table->foreignId('organization_id')->constrained('organizations');
             $table->string('id_xml');
             $table->string('document_type');
-            $table->dateTime('date_time');
+            $table->string('signatory')->nullable();
+            $table->string('signatory_email')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

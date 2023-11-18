@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 /**
  * @OA\Schema(
  *      schema="Firm",
- *      required={"organization_id", "id_xml", "document_type", "date_time"},
+ *      required={"organization_id", "id_xml", "document_type"},
  *      @OA\Property(
  *          property="id",
  *          description="id",
@@ -41,12 +41,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          type="string"
  *      ),
  *      @OA\Property(
- *          property="date_time",
- *          description="date_time",
+ *          property="signatory",
+ *          description="signatory",
  *          readOnly=false,
- *          nullable=false,
- *          type="string",
- *          format="date-time"
+ *          nullable=true,
+ *          type="string"
+ *      ),
+ *      @OA\Property(
+ *          property="signatory_email",
+ *          description="signatory_email",
+ *          readOnly=false,
+ *          nullable=true,
+ *          type="string"
  *      ),
  *      @OA\Property(
  *          property="created_at",
@@ -94,7 +100,8 @@ class Firm extends Model
         'organization_id',
         'id_xml',
         'document_type',
-        'date_time'
+        'signatory',
+        'signatory_email'
     ];
 
     /**
@@ -107,7 +114,8 @@ class Firm extends Model
         'organization_id' => 'integer',
         'id_xml' => 'string',
         'document_type' => 'string',
-        'date_time' => 'datetime'
+        'signatory' => 'string',
+        'signatory_email'  => 'string'
     ];
 
     /**
@@ -116,10 +124,11 @@ class Firm extends Model
      * @var array
      */
     public static $rules = [
-        'organization_id' => 'required',
+        // 'organization_id' => 'required',
         'id_xml' => 'required|string|max:255',
         'document_type' => 'required|string|max:255',
-        'date_time' => 'required',
+        'signatory' => 'nullable',
+        'signatory_email'  => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
