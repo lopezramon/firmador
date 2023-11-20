@@ -41,15 +41,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  *          type="string"
  *      ),
  *      @OA\Property(
- *          property="signatory",
- *          description="signatory",
+ *          property="signature",
+ *          description="signature",
  *          readOnly=false,
  *          nullable=true,
  *          type="string"
  *      ),
  *      @OA\Property(
- *          property="signatory_email",
- *          description="signatory_email",
+ *          property="signature_email",
+ *          description="signature_email",
  *          readOnly=false,
  *          nullable=true,
  *          type="string"
@@ -100,8 +100,8 @@ class Firm extends Model
         'organization_id',
         'id_xml',
         'document_type',
-        'signatory',
-        'signatory_email'
+        'signature',
+        'signature_email'
     ];
 
     /**
@@ -114,8 +114,8 @@ class Firm extends Model
         'organization_id' => 'integer',
         'id_xml' => 'string',
         'document_type' => 'string',
-        'signatory' => 'string',
-        'signatory_email'  => 'string'
+        'signature' => 'string',
+        'signature_email'  => 'string'
     ];
 
     /**
@@ -127,8 +127,8 @@ class Firm extends Model
         // 'organization_id' => 'required',
         'id_xml' => 'required|string|max:255',
         'document_type' => 'required|string|max:255',
-        'signatory' => 'nullable',
-        'signatory_email'  => 'nullable',
+        'signature' => 'nullable',
+        'signature_email'  => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'

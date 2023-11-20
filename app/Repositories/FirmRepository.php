@@ -22,8 +22,8 @@ class FirmRepository extends BaseRepository
         'organization_id',
         'id_xml',
         'document_type',
-        'signatory',
-        'signatory_email'
+        'signature',
+        'signature_email'
     ];
 
     /**
