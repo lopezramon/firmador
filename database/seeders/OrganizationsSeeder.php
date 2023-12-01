@@ -37,6 +37,9 @@ class OrganizationsSeeder extends Seeder
             ['sistem' => 'AvanZF','status' => true, 'name' => 'City Toys', 'company' => 'Inversiones City Play Spa','rut' => '76956891-3'],
             ['sistem' => 'AvanZF','status' => true, 'name' => 'La comarca del hobby', 'company' => 'Dante Ortiz Y Compañia Ltda','rut' => '77300385-8'],
             ['sistem' => 'AvanZF','status' => true, 'name' => 'Coyote Kids', 'company' => 'Importadora Y Comerc. Sofemi Spa','rut' => '76449587-K'],
+            ['sistem' => 'AvanZF','status' => true, 'name' => 'Finning', 'company' => 'Finning Chile S.A.','rut' => '91489000-4'],
+            ['sistem' => 'SVAWeb','status' => true, 'name' => 'Rofil', 'company' => 'Distribucion Rofil Ltda.','rut' => '88831200-5'],
+            ['sistem' => 'SVAWeb','status' => true, 'name' => 'Sánchez', 'company' => 'Sánchez y Sánchez SpA.','rut' => '96620660-8'],
 
         ];
 

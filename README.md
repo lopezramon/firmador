@@ -15,7 +15,7 @@ Web de microsevicios API REST
 mkdir repo
 cd repo
 git clone https://github.com/lopezramon/firmador.git
-cd back
+cd firmador
 git fetch
 git checkout develop
 composer install
