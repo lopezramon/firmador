@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignId('organization_id')->constrained('organizations');
             $table->string('id_xml');
             $table->string('document_type');
+            $table->string('sistem_app');
             $table->string('signature')->nullable();
             $table->string('signature_email')->nullable();
             $table->timestamps();

@@ -62,6 +62,7 @@ class FirmRepository extends BaseRepository
             DB::beginTransaction();
             $organization = Organization::where('rut', '=', $input['rut'])->first();
             $input['organization_id'] = $organization->id;
+            $input['sistem_app'] = $organization->sistem;
             $model = $this->model->newInstance($input);
             $model->save();
             DB::commit();

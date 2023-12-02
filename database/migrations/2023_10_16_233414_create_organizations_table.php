@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('company');
-            $table->string('rut');
+            $table->string('rut')->unique();
             $table->string('email')->nullable();
             $table->boolean('status')->default(false);
             $table->string('sistem');
             $table->foreignId('user_id')->nullable()->constrained('users');
-            $table->unique(['rut','sistem']);
+            // $table->unique(['rut','sistem']);
             // $table->index(['rut','sistem']);
 
             $table->timestamps();

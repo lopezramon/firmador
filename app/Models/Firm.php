@@ -101,7 +101,8 @@ class Firm extends Model
         'id_xml',
         'document_type',
         'signature',
-        'signature_email'
+        'signature_email',
+        'sistem_app'
     ];
 
     /**
@@ -115,7 +116,8 @@ class Firm extends Model
         'id_xml' => 'string',
         'document_type' => 'string',
         'signature' => 'string',
-        'signature_email'  => 'string'
+        'signature_email'  => 'string',
+        'sistem_app' => 'string'
     ];
 
     /**
@@ -129,6 +131,7 @@ class Firm extends Model
         'document_type' => 'required|string|max:255',
         'signature' => 'nullable',
         'signature_email'  => 'nullable',
+        'sistem_app' => 'nullable',
         'created_at' => 'nullable',
         'updated_at' => 'nullable',
         'deleted_at' => 'nullable'
