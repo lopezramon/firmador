@@ -16,7 +16,9 @@ class OrganizationsSeeder extends Seeder
     public function run()
     {
         $organizations = [
+            ['sistem' => 'SVAWeb','status' => true, 'name' => 'Avansis Ltda.', 'company' => 'Vladimir Delic C y Cia Ltda.','rut' => '76096314-3'],
             ['sistem' => 'AvanZF','status' => true, 'name' => 'Avansis Ltda.', 'company' => 'Vladimir Delic C y Cia Ltda.','rut' => '76096314-3'],
+            // ['sistem' => 'AvanZF','status' => true, 'name' => 'Avansis Ltda.', 'company' => 'Vladimir Delic C y Cia Ltda.','rut' => '76096314-3'],
             ['sistem' => 'AvanZF','status' => true, 'name' => 'Central de Carnes', 'company' => 'Central de Carnes Ltda','rut' => '77650460-2'],
             ['sistem' => 'AvanZF','status' => true, 'name' => 'Arecheta', 'company' => 'Comercial Arecheta S.A','rut' => '96558780-2'],
             ['sistem' => 'AvanZF','status' => true, 'name' => 'Arca Hogar', 'company' => 'Importadora Y Comercializadora Rio Serrano SPA','rut' => '77220124-9'],
