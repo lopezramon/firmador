@@ -345,8 +345,12 @@ class OrganizationAPIController extends AppBaseController
         $organization = $this->organizationRepository->findByRut($rut);
 
         if (empty($organization) || $organization == false) {
+            activity()->log('Error Validation Session - '.$rut);
             return $this->sendError('Organization not found');
         }
+
+        activity()->withProperties(['Organization' => $organization])
+        ->log('Validation Session - '.$rut);
 
         return $this->sendResponse($organization->toArray(), 'Organization retrieved successfully');
     }

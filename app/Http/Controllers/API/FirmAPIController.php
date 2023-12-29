@@ -9,6 +9,7 @@ use App\Repositories\FirmRepository;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
 use Response;
+use Spatie\Activitylog\Models\Activity;
 
 /**
  * Class FirmController
@@ -353,6 +354,16 @@ class FirmAPIController extends AppBaseController
 
         $firm = $this->firmRepository->create($input);
 
-        return $this->sendResponse($firm->toArray(), 'Log Signatur saved successfully');
+        activity()->withProperties(['key' => $firm])
+        ->log('Registro - '.$input['rut']);
+
+        return $this->sendResponse($firm->toArray(), 'Signatur saved successfully');
+    }
+
+    public function getShow(Request $request)
+    {
+        $lastActivity = Activity::all();
+        // $lastActivity->getExtraProperty('key');
+        return $this->sendResponse($lastActivity->toArray(), 'Show log signatur saved successfully');
     }
 }

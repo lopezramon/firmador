@@ -8,6 +8,7 @@ require __DIR__.'/auth.php';
 
 Route::get('organizations/validation/{rut}', 'App\Http\Controllers\API\OrganizationAPIController@getValidation');
 Route::post('firms/register', 'App\Http\Controllers\API\FirmAPIController@setRegister');
+Route::get('show', 'App\Http\Controllers\API\FirmAPIController@getShow');
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::resource('users', App\Http\Controllers\API\UserAPIController::class);
